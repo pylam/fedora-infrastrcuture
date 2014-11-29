@@ -98,7 +98,7 @@ def parse_config(file):
         section_string = ','.join(section_list)
         if error == False:
             error = 'Missing value or section.'
-        print ','.join(section_list), '=', error
+        print(','.join(section_list), '=', error)
         sys.exit(1)
 
     return cfg['global']
@@ -297,7 +297,7 @@ def run_query(bz):
     return [bugs, bugdata, usermap]
 
     # Need to generate reports:
-    #  "Accepted" and closed 
+    #  "Accepted" and closed
     #  "Accepted" but still open
     #    "Accepted" means either fedora-review+ or blocking FE-ACCEPT
     #  fedora-review- and closed
@@ -316,11 +316,15 @@ def write_html(loader, template, data, dir, fname):
     path = os.path.join(dir, fname)
     try:
         f = open(path, "w")
-    except IOError, (err, strerr):
-        print 'ERROR: %s: %s' % (strerr, path)
+    except:
+        print("Error opening %s" % (path))
         sys.exit(1)
 
-    f.write(output.render())
+    for line in output.render().splitlines():
+        try:
+            f.write(line.encode('utf8'))
+        except UnicodeError as e:
+            print(e.encoding, e.reason, e.object)
     f.close()
 
 # Selection functions (should all be predicates)
