@@ -1,0 +1,3 @@
+processing scm is moving to be part of releng, as a result the home of this script is now 
+https://git.fedorahosted.org/cgit/releng/tree/scripts/process-git-requests
+
