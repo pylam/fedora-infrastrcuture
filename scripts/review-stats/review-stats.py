@@ -640,7 +640,6 @@ if __name__ == '__main__':
     subs['new'] =         report_new(**args)
     subs['epel'] =        report_epel(**args)
     subs['hidden'] =      report_hidden(**args)
-    subs['merge'] =       report_merge(**args)
     subs['needsponsor'] = report_needsponsor(usermap=usermap, **args)
     subs['review'] =      report_review(**args)
     subs['trivial'] =     report_trivial(**args)
