@@ -1,0 +1,5 @@
+If you commit changes to the code or templates in ansible, they will not be
+reflected in the upstream code and may be overwritten when upstream is copied
+into ansible.  Upstream is at
+ssh://git.fedorahosted.org/git/fedora-infrastructure.git in
+scripts/review-stats.
