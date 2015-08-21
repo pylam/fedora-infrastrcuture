@@ -516,7 +516,7 @@ def report_merge(bugs, bugdata, loader, tmpdir, subs):
 
 def report_needsponsor(bugs, bugdata, loader, usermap, tmpdir, subs):
     data = deepcopy(subs)
-    data['description'] = 'This page lists all new NEEDSPONSOR tickets (those without the fedora-revlew flag set).'
+    data['description'] = 'This page lists all new NEEDSPONSOR tickets (those without the fedora-review flag set).'
     data['title'] = 'NEEDSPONSOR tickets'
     curreporter = ''
     curcount = 0
