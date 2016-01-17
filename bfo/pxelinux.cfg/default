@@ -1,11 +1,11 @@
 DEFAULT vesamenu.c32
 MENU INCLUDE fedora.conf
 PROMPT 0
-MENU TITLE boot.fedoraproject.org (version 2012-05-14)
+MENU TITLE boot.fedoraproject.org (version 2016-01-17)
 
 LABEL bootlocal
 	MENU DEFAULT
-	MENU LABEL Local Boot
+	MENU LABEL Local ^Boot
 	TEXT HELP
 		This will exit from the network boot menu and attempt
 		to boot from local media (hard disk, DVD, etc)
