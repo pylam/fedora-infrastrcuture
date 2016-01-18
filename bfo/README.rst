@@ -104,7 +104,7 @@ Prepare your BFO dist:
   https://alt.fedoraproject.org/pub/alt/bfo/vesainfo.c32 \
   https://alt.fedoraproject.org/pub/alt/bfo/vesamenu.c32 \
   https://alt.fedoraproject.org/pub/alt/bfo/bfo.png
-  cp -r ../../pxelinux.cfg bfo
+  cp -r ../../pxelinux.cfg ../../fedora.conf bfo
 
 Copy your BFO dist to Fedora People:
 
