@@ -103,7 +103,8 @@ Prepare your BFO dist:
   wget -P bfo https://alt.fedoraproject.org/pub/alt/bfo/pxelinux.0 \
   https://alt.fedoraproject.org/pub/alt/bfo/vesainfo.c32 \
   https://alt.fedoraproject.org/pub/alt/bfo/vesamenu.c32 \
-  https://alt.fedoraproject.org/pub/alt/bfo/bfo.png
+  https://alt.fedoraproject.org/pub/alt/bfo/bfo.png \
+  https://alt.fedoraproject.org/pub/alt/bfo/hdt.c32
   cp -r ../../pxelinux.cfg ../../fedora.conf bfo
 
 Copy your BFO dist to Fedora People:
@@ -114,7 +115,7 @@ Copy your BFO dist to Fedora People:
 Boot the ipxe.iso:
 
 ::
-  qemu-kvm -m 1024 bin/ipxe.iso
+  qemu-kvm -m 2048 bin/ipxe.iso
 
 Interact with the menu items as needed for testing your changes.
 
