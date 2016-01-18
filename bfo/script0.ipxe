@@ -1,0 +1,10 @@
+#!ipxe
+set 209:string pxelinux.cfg/default
+set 210:string https://dl.fedoraproject.org/pub/alt/bfo/
+dhcp || goto manualnet
+chain https://dl.fedoraproject.org/pub/alt/bfo/pxelinux.0
+:manualnet
+echo Please provide, IP address, Netmask, Gateway and Router
+ifopen net0
+config net0
+chain https://dl.fedoraproject.org/pub/alt/bfo/pxelinux.0
