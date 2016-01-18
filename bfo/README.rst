@@ -21,12 +21,13 @@ Ensure the following dependencies are installed:
   dnf groupinstall 'Development Tools'
   dnf install syslinux-nonlinux xz-devel 
 
-Clone the repos and build:
+Clone the repos, patch for https and build:
 
 ::
   git clone ssh://fasusername@git.fedorahosted.org/git/fedora-infrastructure.git
   cd fedora-infrastructure/bfo
   git clone git://git.ipxe.org/ipxe.git
+  patch -p0 < ipxe_enable_https.patch
   cd ipxe/src
   make EMBED=../../script0.ipxe
 
@@ -73,12 +74,13 @@ Testing Changes
 ---------------
 To be able to test changes before publishing them, you can use Fedora People hosting and KVM.
 
-Clone the repos, configure for your Fedora People and build:
+Clone the repos, patch for https, configure for your Fedora People and build:
 
 ::
   git clone ssh://fasusername@git.fedorahosted.org/git/fedora-infrastructure.git
   cd fedora-infrastructure/bfo
   git clone git://git.ipxe.org/ipxe.git
+  patch -p0 < ipxe_enable_https.patch
   cd ipxe/src
   cat << EOF > script0.ipxe
   #!ipxe
@@ -94,15 +96,20 @@ Clone the repos, configure for your Fedora People and build:
   EOF
   make EMBED=script0.ipxe
 
-From the root of the fedora-infrastructure repo, copy your menu items to Fedora People:
+Prepare your BFO dist:
 
 ::
-  scp -r bfo fasusername@fedorapeople.org/public_html/
+  mkdir bfo
+  wget -P bfo https://alt.fedoraproject.org/pub/alt/bfo/pxelinux.0 \
+  https://alt.fedoraproject.org/pub/alt/bfo/vesainfo.c32 \
+  https://alt.fedoraproject.org/pub/alt/bfo/vesamenu.c32 \
+  https://alt.fedoraproject.org/pub/alt/bfo/bfo.png
+  cp -r ../../pxelinux.cfg bfo
 
-If needed, also put the latest copy of pxelinux.0 there:
+Copy your BFO dist to Fedora People:
 
 ::
-  scp /usr/share/syslinux/pxelinux.0 fasusername@fedorapeople.org/public_html/bfo/
+  scp -r bfo fasusername@fedorapeople.org:public_html/
 
 Boot the ipxe.iso:
 
