@@ -1,7 +1,7 @@
 DEFAULT vesamenu.c32
 MENU INCLUDE fedora.conf
 PROMPT 0
-MENU TITLE boot.fedoraproject.org (version 2016-01-17)
+MENU TITLE boot.fedoraproject.org (version 2016-11-22)
 
 LABEL bootlocal
 	MENU DEFAULT
